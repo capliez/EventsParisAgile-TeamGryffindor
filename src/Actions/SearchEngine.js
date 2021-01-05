@@ -25,6 +25,11 @@ function FilterDataFromAPI(params) {
             </div>
         );
     })
+    return (
+        <div>
+            <p>bizarre</p>
+        </div>
+    );
 }
 
 export default FilterDataFromAPI;
