@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import { InputGroup, FormControl } from 'react-bootstrap';
+
 const API_URL = "https://opendata.paris.fr"
 
 class SearchEngine extends React.Component {
@@ -29,6 +31,17 @@ class SearchEngine extends React.Component {
         console.log(events)
         return (
           <div className="Card">
+            <input placeholder='Search for an event' className=''></input>
+            <InputGroup className="mb-3">
+                <FormControl
+                placeholder="Search for an event"
+                aria-label="Search for an event"
+                aria-describedby="basic-addon2"
+                />
+                <InputGroup.Append>
+                <InputGroup.Text id="basic-addon2"><i class="fas fa-search"></i></InputGroup.Text>
+                </InputGroup.Append>
+            </InputGroup>
             <div className="header">NAME LIST</div>
             {events.map((event, index) => {return (
                 <div key={index}>
