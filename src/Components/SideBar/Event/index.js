@@ -3,6 +3,7 @@ import { Col, Row, Image, Container } from 'react-bootstrap';
 import Map from '../../Map';
 import SearchBar from './../SearchBar/SearchBar'
 
+
 class Event extends Component {
     constructor(props) {
       super(props);
@@ -44,12 +45,7 @@ class Event extends Component {
                 </div>
               </Container>
 
-            </Col>
-            <Col lg={6}> 
-              <Map/>
-            </Col>
-          </Row>
-        </div>
+            </div>
       )
     }
 
