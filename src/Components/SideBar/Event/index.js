@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
-import Map from '../../Map';
+// import Map from '../../Map';
 
 class Event extends Component {
     constructor(props) {
@@ -9,9 +9,7 @@ class Event extends Component {
 
     render(){
       return(
-        <div id="seeEvent">
-          <Row noGutters>
-            <Col lg={6} className="eventScroll">
+            <div className="eventScroll">
               <Image fluid src="https://www.carreaudutemple.eu/sites/default/files/styles/1200x465/public/images/cineclub_-_border_-_ali_abbassi_2.jpg?itok=eInv3iNx" />
               
               <Container>
@@ -43,12 +41,7 @@ class Event extends Component {
 
               </Container>
 
-            </Col>
-            <Col lg={6}> 
-              <Map/>
-            </Col>
-          </Row>
-        </div>
+            </div>
       )
     }
 
