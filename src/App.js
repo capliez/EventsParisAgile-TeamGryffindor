@@ -6,9 +6,9 @@ import SearchEngine from './Actions/SearchEngine';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Event/>
-      <SearchEngine params={{q: 'melun'}} />
+      <SearchEngine />
     </div>
   );
 }
