@@ -7,10 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-      <SideBar />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Map />
+        <SideBar />
+      </div>
+    </Provider>
   );
 }
 
