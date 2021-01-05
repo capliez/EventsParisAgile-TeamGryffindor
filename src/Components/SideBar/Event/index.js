@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
-import Map from '../Map';
+import Map from '../../Map';
 
 class Event extends Component {
     constructor(props) {

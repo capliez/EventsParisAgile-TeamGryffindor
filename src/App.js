@@ -1,11 +1,18 @@
-import React from "react";
-import SearchEngine from "./Actions/SearchEngine";
+import { Provider } from 'react-redux';
+import store  from './store/store';
+import './App.css';
+import Map from './Components/Map';
+import SideBar from './Components/SideBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <SearchEngine />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Map />
+        <SideBar />
+      </div>
+    </Provider>
   );
 }
 
