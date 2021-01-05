@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 import Map from '../../Map';
 import SearchBar from './../SearchBar/SearchBar'
+import DateBar from './../SearchBar/DateBar';
 
 class Event extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Event extends Component {
             <Col lg={6} className="eventScroll">
                 
               <SearchBar />
+              <DateBar />
               <Image fluid src="https://www.carreaudutemple.eu/sites/default/files/styles/1200x465/public/images/cineclub_-_border_-_ali_abbassi_2.jpg?itok=eInv3iNx" />
               
               <Container>
