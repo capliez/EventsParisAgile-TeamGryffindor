@@ -1,10 +1,10 @@
 import './App.css';
-import Map from './Components/Map';
+import SearchEngine from './Actions/SearchEngine';
 
 function App() {
   return (
     <div>
-      <Map/>
+      <SearchEngine params={{q: 'melun'}} />
     </div>
   );
 }
