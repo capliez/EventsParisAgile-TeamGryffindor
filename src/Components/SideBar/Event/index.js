@@ -4,6 +4,7 @@ import Map from '../../Map';
 import SearchBar from './../SearchBar/SearchBar'
 import DateBar from './../SearchBar/DateBar';
 
+
 class Event extends Component {
     constructor(props) {
       super(props);
@@ -46,12 +47,7 @@ class Event extends Component {
                 </div>
               </Container>
 
-            </Col>
-            <Col lg={6}> 
-              <Map/>
-            </Col>
-          </Row>
-        </div>
+            </div>
       )
     }
 
