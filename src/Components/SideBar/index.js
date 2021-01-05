@@ -4,7 +4,9 @@ import Event from './Event'
 class SideBar extends Component {
     render() {
         return(
-            <Event />
+            <div>
+                <Event />
+            </div>
         )
     }
 }

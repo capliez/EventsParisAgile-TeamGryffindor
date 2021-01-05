@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 import Map from '../../Map';
+import SearchBar from './../SearchBar/SearchBar'
 
 class Event extends Component {
     constructor(props) {
@@ -12,10 +13,11 @@ class Event extends Component {
         <div id="seeEvent">
           <Row noGutters>
             <Col lg={6} className="eventScroll">
+                
+              <SearchBar />
               <Image fluid src="https://www.carreaudutemple.eu/sites/default/files/styles/1200x465/public/images/cineclub_-_border_-_ali_abbassi_2.jpg?itok=eInv3iNx" />
               
               <Container>
-                
                 <div className="mt-2 text-center">
                   <h1 className="h2 font-weight-bold">Cinéclub - "Border" d'Ali Abbassi</h1>
                 </div>
@@ -40,7 +42,6 @@ class Event extends Component {
                   <h2 className="h4">Métro</h2>
                   <p className="text-secondary">3: Temple (188m) 3,8,9,11: République (348m)</p>
                 </div>
-
               </Container>
 
             </Col>
