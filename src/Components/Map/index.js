@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 class Map extends Component {
   constructor(props) {
     super(props);
+
+    let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+    });
+    L.Marker.prototype.options.icon = DefaultIcon;
   }
 
   render() {
     return (
+      
       <div>
         <MapContainer
-          style={{height: "100vh"}}
+          style={{ height: "100vh" }}
           center={[48.8534, 2.3488]}
           zoom={14}
           scrollWheelZoom={false}
