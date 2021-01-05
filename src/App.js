@@ -9,8 +9,8 @@ import { Col, Row, Image, Container } from 'react-bootstrap';
 function App() {
   return (
     <Provider store={store}>
-      <Row className="App" style={{flex: 1, flexDirection: 'row'}}>
-        <Col lg={6}>
+      <Row noGutters className="App" style={{flex: 1, flexDirection: 'row'}}>
+        <Col lg={4}>
           <SideBar />
         </Col>
         <Col>
