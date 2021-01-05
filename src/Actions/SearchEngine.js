@@ -25,11 +25,6 @@ function FilterDataFromAPI(params) {
             </div>
         );
     })
-    return (
-        <div>
-          <h1>Wuuuuuut !?</h1>
-        </div>
-    );
 }
 
 export default FilterDataFromAPI;
