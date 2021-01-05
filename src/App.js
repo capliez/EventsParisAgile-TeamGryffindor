@@ -1,11 +1,10 @@
-import SearchEngine from './Actions/SearchEngine';
+import React from "react";
+import SearchEngine from "./Actions/SearchEngine";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <SearchEngine />  
-      </header>
+      <SearchEngine />
     </div>
   );
 }
