@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 class Map extends Component {
   constructor(props) {
     super(props);
+
+    let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+  });
+  L.Marker.prototype.options.icon = DefaultIcon;
   }
 
   render() {
