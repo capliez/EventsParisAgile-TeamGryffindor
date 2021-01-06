@@ -1,6 +1,8 @@
 const initialState = {
     isLoaded: false,
     results: null,
+    currentEvent: [],
+    isEvent: false
 }
 
 function ResultsReducer(state = initialState, action) {
@@ -10,6 +12,13 @@ function ResultsReducer(state = initialState, action) {
                 ...state,
                 isLoaded: action.value.bool,
                 results: action.value.array,
+            }
+        case 'CURRENT_EVENT':
+            const { item, isEvent} = action.payload
+            return {
+                ...state,
+                currentEvent: item,
+                isEvent,
             }
             default: return state;
     }
