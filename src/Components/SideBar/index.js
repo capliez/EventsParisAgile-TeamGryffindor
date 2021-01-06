@@ -20,9 +20,9 @@ class SideBar extends Component {
                 {/* <Event /> */}
                 {ResultsReducer.isEvent ? <SeeEvent setCurrentEvent={() => addCurrentEvent(null, false) } data={ResultsReducer.currentEvent}/> :
                     <Fragment>
-                    <SearchBar />
-                    <DateBar />
-                    <List />
+                        <SearchBar />
+                        <DateBar />
+                        <List />
                     </Fragment>
                 }
             </div>
