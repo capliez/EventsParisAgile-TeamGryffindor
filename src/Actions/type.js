@@ -1,0 +1,3 @@
+export const ERROR_LOADED = "ERROR_LOADED"
+export const FILTER_LOADED = "FILTER_LOADED"
+export const RESULTS_LOADED = "RESULTS_LOADED"
