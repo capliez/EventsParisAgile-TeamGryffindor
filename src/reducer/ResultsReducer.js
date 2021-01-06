@@ -3,17 +3,17 @@ const initialState = {
     results: null,
 }
 
-function SearchResultsReducer(state = initialState, action) {
+function ResultsReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SearchResults_LOADED' :
+        case 'RESULTS_LOADED' : 
             return {
                 ...state,
-                isLoaded: true,
-                results: action.results,
+                isLoaded: action.value.bool,
+                results: action.value.array,
             }
             default: return state;
     }
 
 }
 
-export default SearchResultsReducer;
+export default ResultsReducer;

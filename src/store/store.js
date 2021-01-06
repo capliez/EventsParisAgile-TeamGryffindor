@@ -1,14 +1,16 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import ErrorReducer from '../reducer/ErrorReducer'
 import ResultsReducer from '../reducer/ResultsReducer'
-import FilterReducer from '../reducer/FilterReducer'
+import thunkMiddleware from 'redux-thunk'
 
 const reducer = combineReducers({
     ErrorReducer,
-    ResultsReducer,
-    FilterReducer
+    ResultsReducer
 });
 
-const store = createStore(reducer)
+const store = createStore(
+    reducer,
+    applyMiddleware(thunkMiddleware)
+);
 
 export default store
