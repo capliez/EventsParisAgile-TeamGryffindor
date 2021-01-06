@@ -24,8 +24,8 @@ class DateBar extends React.Component {
   render() {
     const { date } = this.state;
     return (
-      <div>
-        <DatePicker 
+      <div style={{textAlign: "center" }}>
+        <DatePicker className={"p-1 m-3"}
         dateFormat="dd/MM/yyyy"
         selected={date} 
         onChange={(e) => this.setDate(e)} //when day is clicked

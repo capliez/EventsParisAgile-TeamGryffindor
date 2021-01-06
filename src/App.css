@@ -1,7 +1,7 @@
 
 @media only screen and (min-width: 992px) {
     .eventScroll{
-        height: calc(100vh - 5px);
+        height: calc(100vh - 15vh);
         overflow-y: scroll;
     }
 }
