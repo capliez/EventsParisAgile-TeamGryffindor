@@ -1,23 +1,42 @@
 import React from 'react'
-import { Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import { searchByDate } from "./../../../Actions/SearchEngine";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+import moment from 'moment'
 
-const API_URL = "https://opendata.paris.fr"
+class DateBar extends React.Component {
 
-function DateBar() {
-        const options = ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
-        return (
-            <div>
-                <Form.Group controlId="exampleForm.SelectCustom" className='p-3'>
-                  <Form.Label>Modified</Form.Label>
-                  <Form.Control as="select" onChange={e => searchByDate(e.target.value) } custom>
-                    {options.map((year, index) => {
-                      return <option key={index}>{year}</option>
-                    })}
-                  </Form.Control>
-                </Form.Group>
-            </div>
-        );
+  constructor(props) {
+    super(props)
+    this.state = {
+      date : Date.now()
+    }
+  }
+
+  setDate(e){
+    this.setState({
+      date : Date.parse(e)
+    })
+    this.props.searchByDate(moment(e).format('YYYY-MM-DD'))
+  }
+
+  render() {
+    const { date } = this.state;
+    return (
+      <div>
+        <DatePicker 
+        dateFormat="dd/MM/yyyy"
+        selected={date} 
+        onChange={(e) => this.setDate(e)} //when day is clicked
+        />
+      </div>
+    );
+  }
 }
 
-export default DateBar;
+const mapStateToProps = state => ({
+  ResultsReducer : state.ResultsReducer
+})
+
+export default connect(mapStateToProps, {searchByDate})(DateBar);
