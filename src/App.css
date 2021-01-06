@@ -4,4 +4,8 @@
         height: calc(100vh - 15vh);
         overflow-y: scroll;
     }
+    .currentEventScroll{
+        height: calc(100vh - 5px);
+        overflow-y: scroll;
+    }
 }

@@ -3,23 +3,21 @@ import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser'
 import Cards from './Cards'
 import { Spinner } from 'react-bootstrap'
-
+import { setCurrentEvent } from "./../../../Actions/SearchEngine";
 
 class List extends Component {
   constructor(props) {
-    super(props);
-
+    super(props); 
   }
 
   render() {
-    const { ResultsReducer } = this.props
-    console.log('List index', ResultsReducer);
+    const { ResultsReducer, addCurrentEvent } = this.props
     
     if(ResultsReducer.results) {
         return (      
             <div className="eventScroll">
               {ResultsReducer.results.map((element, i) => (
-                  <Cards key={i} data={element}/>
+                  <Cards addCurrentEvent={(i, b) => addCurrentEvent(i, b)} key={i} data={element}/>
               ))}
             </div>
         );
@@ -38,4 +36,8 @@ const mapStateToProps = state => ({
   ResultsReducer : state.ResultsReducer
 })
 
-export default connect(mapStateToProps, {})(List);
+const mapDispatchToProps = {
+  addCurrentEvent: setCurrentEvent
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
