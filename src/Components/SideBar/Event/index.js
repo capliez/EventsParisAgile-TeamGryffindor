@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 import Map from '../../Map';
 import SearchBar from './../SearchBar/SearchBar'
+import DateBar from './../SearchBar/DateBar';
 
 
 class Event extends Component {
@@ -12,13 +13,12 @@ class Event extends Component {
     render(){
       return(
         <div id="seeEvent">
-          <Row noGutters>
-            <Col lg={6} className="eventScroll">
                 
               <SearchBar />
+              <DateBar />
               <Image fluid src="https://www.carreaudutemple.eu/sites/default/files/styles/1200x465/public/images/cineclub_-_border_-_ali_abbassi_2.jpg?itok=eInv3iNx" />
               
-              <Container>
+              <Container></Container>
                 <div className="mt-2 text-center">
                   <h1 className="h2 font-weight-bold">Cinéclub - "Border" d'Ali Abbassi</h1>
                 </div>
@@ -43,9 +43,7 @@ class Event extends Component {
                   <h2 className="h4">Métro</h2>
                   <p className="text-secondary">3: Temple (188m) 3,8,9,11: République (348m)</p>
                 </div>
-              </Container>
-
-            </div>
+        </div>
       )
     }
 

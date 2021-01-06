@@ -19,7 +19,7 @@ export function searchByName(name) {
 
 // Pas encore fonctionnel
 export function searchByDate(date) {
-    axios.get(API_URL + '/api/records/1.0/search/?dataset=que-faire-a-paris-')
+    axios.get(API_URL + '/api/records/1.0/search/?dataset=que-faire-a-paris-&refine.modified=' + date)
         .then(json => json.data.records.map(result => (
           {
             fields: {
