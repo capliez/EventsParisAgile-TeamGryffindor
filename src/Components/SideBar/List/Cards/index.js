@@ -12,7 +12,7 @@ class Cards extends Component {
     const {data, addCurrentEvent} = this.props
     return (      
         <ListGroup defaultActiveKey="#link1">
-            <ListGroup.Item onClick={() => addCurrentEvent(data, true)} action /* onClick={alertClicked} */>
+            <ListGroup.Item onClick={() => addCurrentEvent(data, true)} action />
             <Row style={{color : "#000"}}>
                 <Col md={8}>
                     <h4>{data.fields.title}</h4>
