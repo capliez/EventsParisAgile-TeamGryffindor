@@ -4,11 +4,11 @@ import ReactHtmlParser from 'react-html-parser'
 import Cards from './Cards'
 import { Spinner } from 'react-bootstrap'
 import {setResults} from '../../../Actions/SearchEngine'
+import { setCurrentEvent } from "./../../../Actions/SearchEngine";
 
 class List extends Component {
   constructor(props) {
-    super(props);
-
+    super(props); 
   }
 
   async handleHover(item) {
@@ -16,21 +16,17 @@ class List extends Component {
     const array = ResultsReducer.results
     array.filter(element => element.recordid === item.recordid ? element.isActive = true : element.isActive = false)
     await this.props.setResults({array: array, bool : true,})
-    ResultsReducer.results.map(element => {
-      console.log(element.isActive)
-    })
   }
 
   render() {
-    const { ResultsReducer } = this.props
-    console.log('List index', ResultsReducer);
+    const { ResultsReducer, addCurrentEvent } = this.props
     
     if(ResultsReducer.results) {
         return (      
             <div className="eventScroll">
               {ResultsReducer.results.map((element, i) => (
                 <div onMouseEnter={() => this.handleHover(element)}>
-                  <Cards key={i} data={element}/>
+                  <Cards addCurrentEvent={(i, b) => addCurrentEvent(i, b)} key={i} data={element}/>
                 </div>
               ))}
             </div>
@@ -50,4 +46,9 @@ const mapStateToProps = state => ({
   ResultsReducer : state.ResultsReducer
 })
 
-export default connect(mapStateToProps, {setResults})(List);
+const mapDispatchToProps = {
+  addCurrentEvent: setCurrentEvent,
+  setResults: setResults
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

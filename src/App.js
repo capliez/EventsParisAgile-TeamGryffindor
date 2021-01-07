@@ -6,19 +6,20 @@ import SideBar from './Components/SideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 
-function App() {
+function App(props) {
   return (
     <Provider store={store}>
       <Row noGutters className="App" style={{flex: 1, flexDirection: 'row'}}>
-        <Col lg={4}>
+        <Col lg={5}>
           <SideBar />
         </Col>
-        <Col>
+        <Col lg={7}>
           <Map />
         </Col>
       </Row>
     </Provider>
   );
 }
+
 
 export default App;

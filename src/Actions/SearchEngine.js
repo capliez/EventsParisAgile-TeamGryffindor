@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { RESULTS_LOADED, ERROR_LOADED } from './type'
+import { RESULTS_LOADED, ERROR_LOADED, CURRENT_EVENT } from './type'
 
 const API_URL = "https://opendata.paris.fr"
 
@@ -40,5 +40,12 @@ export const setError = value => {
   return {
     type: ERROR_LOADED,
     value : value
+  }
+}
+
+export const setCurrentEvent = (item, isEvent) => { 
+  return {
+    type: CURRENT_EVENT,
+    payload : {item, isEvent},
   }
 }

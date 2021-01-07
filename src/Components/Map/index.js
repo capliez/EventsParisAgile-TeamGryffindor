@@ -25,6 +25,14 @@ class Map extends Component {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
+          {ResultsReducer.isEvent && 
+             <Marker  key={ResultsReducer.currentEvent.fields.id} position={ResultsReducer.currentEvent.geometry ? [ResultsReducer.currentEvent.geometry.coordinates[1], ResultsReducer.currentEvent.geometry.coordinates[0]] : [0,0]}>
+             <Popup>
+               {ResultsReducer.currentEvent.fields.title}<br/>{ResultsReducer.currentEvent.fields.address_name}<br/>{ReactHtmlParser(ResultsReducer.currentEvent.fields.date_description)}
+             </Popup>
+           </Marker>
+          }
           
           {ResultsReducer.isLoaded ? ResultsReducer.results.map((element, i) => (
             <Marker  icon={element.isActive === true ? <img style={{width: 30}} src={iconMap} /> : <img style={{width: 20}} src={iconMap} />} key={i} position={element.geometry ? [element.geometry.coordinates[1], element.geometry.coordinates[0]] : [0,0]}>

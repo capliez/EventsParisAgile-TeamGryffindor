@@ -3,14 +3,18 @@ import ErrorReducer from '../reducer/ErrorReducer'
 import ResultsReducer from '../reducer/ResultsReducer'
 import thunkMiddleware from 'redux-thunk'
 
-const reducer = combineReducers({
+const reducers = combineReducers({
     ErrorReducer,
     ResultsReducer
 });
 
-const store = createStore(
-    reducer,
-    applyMiddleware(thunkMiddleware)
+const createStoreWithMiddleware = applyMiddleware(
+    thunkMiddleware
+  )(createStore);
+
+const store = createStoreWithMiddleware(
+    reducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default store

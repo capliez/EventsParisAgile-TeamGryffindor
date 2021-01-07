@@ -9,24 +9,24 @@ class Cards extends Component {
   }
 
   render() {
-    const {data} = this.props
+    const {data, addCurrentEvent} = this.props
     return (      
-        <ListGroup defaultActiveKey="#link1">
-            <ListGroup.Item action /* onClick={alertClicked} */>
-            <Row style={{color : "#000"}}>
-                <Col md={8}>
-                    <h4>{data.fields.title}</h4>
-                    <p>{ReactHtmlParser(data.fields.date_description)}</p>
-                    <p>{data.fields.address_city}</p>
-                    <p>{data.fields.lead_text}</p>
-                    <p>Accès : {data.fields.transport}</p>
-                </Col>
-                <Col md={4}>
-                    <Image src={data.fields.cover_url} alt="event_thumbnail" thumbnail />           
-                </Col>
-            </Row>
-        </ListGroup.Item>
-      </ListGroup>
+        <ListGroup>
+            <ListGroup.Item onClick={() => addCurrentEvent(data, true)} action >
+                <Row style={{color : "#000"}}>
+                    <Col md={8}>
+                        <h4>{data.fields.title}</h4>
+                        <p>{ReactHtmlParser(data.fields.date_description)}</p>
+                        <p>{data.fields.address_city}</p>
+                        <p>{data.fields.lead_text}</p>
+                        <p>Accès : {data.fields.transport}</p>
+                    </Col>
+                    <Col md={4}>
+                        <Image src={data.fields.cover_url} alt="event_thumbnail" thumbnail />           
+                    </Col>
+                </Row>
+            </ListGroup.Item>
+        </ListGroup>
     );
   }
 }
