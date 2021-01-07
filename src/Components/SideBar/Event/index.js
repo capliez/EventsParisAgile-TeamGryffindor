@@ -5,9 +5,6 @@ import 'moment/locale/fr'
 import moment from 'moment'
 
 class Event extends Component {
-    constructor(props) {
-      super(props);
-    }
 
     componentDidMount(){
       moment.locale('fr')
@@ -26,7 +23,7 @@ class Event extends Component {
               </div>
               
               
-              <Container></Container>
+              <Container>
                 <div className="mt-2 text-center">
                   <h1 className="h2 font-weight-bold">{data.fields.title}</h1>
                 </div>
@@ -76,7 +73,7 @@ class Event extends Component {
                   <p className="text-secondary">{data.fields.contact_facebook && "Facebook :" + data.fields.contact_facebook }</p>
                   <a target="_blanck" href={data.fields.contact_url} className="text-secondary">{data.fields.contact_url && "Site : " + data.fields.contact_url }</a>
                 </div>
-
+              </Container>
         </div>
       )
     }

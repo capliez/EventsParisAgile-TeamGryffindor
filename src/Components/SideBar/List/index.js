@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import ReactHtmlParser from 'react-html-parser'
 import Cards from './Cards'
 import { Spinner } from 'react-bootstrap'
 import {setResults} from '../../../Actions/SearchEngine'
 import { setCurrentEvent } from "./../../../Actions/SearchEngine";
 
 class List extends Component {
-  constructor(props) {
-    super(props); 
-  }
 
   async handleHover(item) {
     const {ResultsReducer} = this.props;

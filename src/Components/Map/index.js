@@ -7,9 +7,6 @@ import Marker from 'react-leaflet-enhanced-marker'
 import iconMap from '../../assets/pin_map.png'
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { ResultsReducer } = this.props
@@ -35,7 +32,7 @@ class Map extends Component {
           }
           
           {ResultsReducer.isLoaded ? ResultsReducer.results.map((element, i) => (
-            <Marker  icon={element.isActive === true ? <img style={{width: 30}} src={iconMap} /> : <img style={{width: 20}} src={iconMap} />} key={i} position={element.geometry ? [element.geometry.coordinates[1], element.geometry.coordinates[0]] : [0,0]}>
+            <Marker  icon={element.isActive === true ? <img style={{width: 30}} src={iconMap} alt="icon_map"/> : <img style={{width: 20}} src={iconMap} alt="icon_map"/>} key={i} position={element.geometry ? [element.geometry.coordinates[1], element.geometry.coordinates[0]] : [0,0]}>
               <Popup>
                 {element.fields.title}<br/>{element.fields.address_name}<br/>{ReactHtmlParser(element.fields.date_description)}
               </Popup>

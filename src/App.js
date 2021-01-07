@@ -4,7 +4,7 @@ import './App.css';
 import Map from './Components/Map';
 import SideBar from './Components/SideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Row, Image, Container } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 function App(props) {
   return (
