@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { searchByDate } from "./../../../Actions/SearchEngine";
+import {  setDateSearch, searchByName } from "./../../../Actions/SearchEngine";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import moment from 'moment'
@@ -10,15 +10,17 @@ class DateBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      date : Date.now()
+      date : this.props.ResultsReducer.dateSearch !== '' ? Date.parse(this.props.ResultsReducer.dateSearch) : Date.now()
     }
   }
 
-  setDate(e){
+
+  async setDate(e){
     this.setState({
       date : Date.parse(e)
     })
-    this.props.searchByDate(moment(e).format('YYYY-MM-DD'))
+    this.props.setDateSearch(moment(e).format('YYYY-MM-DD'))
+    await this.props.searchByName(this.props.ResultsReducer.textSearch , moment(e).format('YYYY-MM-DD'))
   }
 
   render() {
@@ -39,4 +41,4 @@ const mapStateToProps = state => ({
   ResultsReducer : state.ResultsReducer
 })
 
-export default connect(mapStateToProps, {searchByDate})(DateBar);
+export default connect(mapStateToProps, {setDateSearch, searchByName})(DateBar);

@@ -2,7 +2,9 @@ const initialState = {
     isLoaded: false,
     results: null,
     currentEvent: [],
-    isEvent: false
+    isEvent: false,
+    textSearch: "",
+    dateSearch: ""
 }
 
 function ResultsReducer(state = initialState, action) {
@@ -19,6 +21,16 @@ function ResultsReducer(state = initialState, action) {
                 ...state,
                 currentEvent: item,
                 isEvent,
+            }
+        case 'TEXT_SEARCH':
+            return{
+                ...state,
+                textSearch: action.payload
+            }
+        case 'DATE_SEARCH':
+            return{
+                ...state,
+                dateSearch: action.payload
             }
             default: return state;
     }
