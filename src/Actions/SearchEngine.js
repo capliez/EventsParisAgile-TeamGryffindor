@@ -3,8 +3,8 @@ import { RESULTS_LOADED, ERROR_LOADED, CURRENT_EVENT , TEXT_SEARCH, DATE_SEARCH}
 
 const API_URL = "https://opendata.paris.fr"
 
-export const initialSearch = name => dispatch => {
-  axios.get(API_URL + '/api/records/1.0/search/?dataset=que-faire-a-paris-&q=')
+export const initialSearch = date => dispatch => {
+  axios.get(API_URL + '/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&facet=date_start&refine.date_start=' + date)
         //success
         .then(async newData => dispatch(setResults({bool : true, array : await newData.data.records})))
         //fail

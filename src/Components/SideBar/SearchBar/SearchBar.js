@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
   componentDidMount(){
     let datesearch = this.props.ResultsReducer.dateSearch !== '' ? this.props.ResultsReducer.dateSearch : moment().format('YYYY-MM-DD')
 
-    this.props.ResultsReducer.textSearch !== "" || this.props.ResultsReducer.dateSearch !== ''  ? this.props.searchByName(this.props.ResultsReducer.textSearch, datesearch) : this.props.initialSearch()
+    this.props.ResultsReducer.textSearch !== "" || this.props.ResultsReducer.dateSearch !== ''  ? this.props.searchByName(this.props.ResultsReducer.textSearch, datesearch) : this.props.initialSearch(moment().format('YYYY-MM-DD'))
   }
 
   async setKeywords(e){
