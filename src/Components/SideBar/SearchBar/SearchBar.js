@@ -1,25 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
-import { searchByName, initialSearch } from "./../../../Actions/SearchEngine";
-
+import { searchByName, initialSearch, setTextSearch } from "./../../../Actions/SearchEngine";
+import moment from 'moment'
 class SearchBar extends React.Component {
 
   constructor(props){
       super(props)
       this.state = {
-        searchQuery: '',
+        searchQuery: this.props.ResultsReducer.textSearch !== "" ? this.props.ResultsReducer.textSearch : '',
         list: []
       }
-    }
+  }
 
   componentDidMount(){
-    this.props.initialSearch()
-    }
+    let datesearch = this.props.ResultsReducer.dateSearch !== '' ? this.props.ResultsReducer.dateSearch : moment().format('YYYY-MM-DD')
+
+    this.props.ResultsReducer.textSearch !== "" || this.props.ResultsReducer.dateSearch !== ''  ? this.props.searchByName(this.props.ResultsReducer.textSearch, datesearch) : this.props.initialSearch()
+  }
 
   async setKeywords(e){
     this.setState({searchQuery: e.target.value}); 
-    await this.props.searchByName(e.target.value)
+    this.props.setTextSearch(e.target.value)
+    let datesearch = this.props.ResultsReducer.dateSearch !== '' ? this.props.ResultsReducer.dateSearch : moment().format('YYYY-MM-DD')
+    await this.props.searchByName(e.target.value, datesearch)
   }
 
   render() {
@@ -48,4 +52,5 @@ const mapStateToProps = state => ({
   ResultsReducer : state.ResultsReducer
 })
 
-export default connect(mapStateToProps, {searchByName, initialSearch})(SearchBar);
+
+export default connect(mapStateToProps, {searchByName, initialSearch, setTextSearch})(SearchBar);

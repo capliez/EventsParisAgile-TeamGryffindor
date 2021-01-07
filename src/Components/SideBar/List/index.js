@@ -25,8 +25,8 @@ class List extends Component {
         return (      
             <div className="eventScroll">
               {ResultsReducer.results.map((element, i) => (
-                <div onMouseEnter={() => this.handleHover(element)}>
-                  <Cards addCurrentEvent={(i, b) => addCurrentEvent(i, b)} key={i} data={element}/>
+                <div key={i}  onMouseEnter={() => this.handleHover(element)}>
+                  <Cards addCurrentEvent={(i, b) => addCurrentEvent(i, b)} data={element}/>
                 </div>
               ))}
             </div>
