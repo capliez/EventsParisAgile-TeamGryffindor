@@ -3,11 +3,19 @@ import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser'
 import Cards from './Cards'
 import { Spinner } from 'react-bootstrap'
+import {setResults} from '../../../Actions/SearchEngine'
 import { setCurrentEvent } from "./../../../Actions/SearchEngine";
 
 class List extends Component {
   constructor(props) {
     super(props); 
+  }
+
+  async handleHover(item) {
+    const {ResultsReducer} = this.props;
+    const array = ResultsReducer.results
+    array.filter(element => element.recordid === item.recordid ? element.isActive = true : element.isActive = false)
+    await this.props.setResults({array: array, bool : true,})
   }
 
   render() {
@@ -17,7 +25,9 @@ class List extends Component {
         return (      
             <div className="eventScroll">
               {ResultsReducer.results.map((element, i) => (
+                <div onMouseEnter={() => this.handleHover(element)}>
                   <Cards addCurrentEvent={(i, b) => addCurrentEvent(i, b)} key={i} data={element}/>
+                </div>
               ))}
             </div>
         );
@@ -37,7 +47,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  addCurrentEvent: setCurrentEvent
+  addCurrentEvent: setCurrentEvent,
+  setResults: setResults
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

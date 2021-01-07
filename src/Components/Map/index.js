@@ -1,21 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import ReactHtmlParser from 'react-html-parser'
+import Marker from 'react-leaflet-enhanced-marker'
+import iconMap from '../../assets/pin_map.png'
 
 class Map extends Component {
   constructor(props) {
     super(props);
-
-    let DefaultIcon = L.icon({
-      iconUrl: icon,
-      shadowUrl: iconShadow
-    });
-    L.Marker.prototype.options.icon = DefaultIcon;
   }
 
   render() {
@@ -25,7 +18,7 @@ class Map extends Component {
         <MapContainer
           style={{ height: "100vh" }}
           center={[48.8534, 2.3488]}
-          zoom={12}
+          zoom={13}
           scrollWheelZoom={false}
         >
           <TileLayer
@@ -41,8 +34,8 @@ class Map extends Component {
            </Marker>
           }
           
-          {ResultsReducer.isLoaded && !ResultsReducer.isEvent ? ResultsReducer.results.map((element, i) => (
-            <Marker  key={i} position={element.geometry ? [element.geometry.coordinates[1], element.geometry.coordinates[0]] : [0,0]}>
+          {ResultsReducer.isLoaded ? ResultsReducer.results.map((element, i) => (
+            <Marker  icon={element.isActive === true ? <img style={{width: 30}} src={iconMap} /> : <img style={{width: 20}} src={iconMap} />} key={i} position={element.geometry ? [element.geometry.coordinates[1], element.geometry.coordinates[0]] : [0,0]}>
               <Popup>
                 {element.fields.title}<br/>{element.fields.address_name}<br/>{ReactHtmlParser(element.fields.date_description)}
               </Popup>
